@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lush Cosmetics | لوش كوزمتكس</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
+        .font-serif { font-family: 'Playfair Display', serif; }
+        
+        .gold-gradient {
+            background: linear-gradient(to bottom, #D4AF37, #B8860B, #8B6508);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hidden-site { display: none; }
+    </style>
+</head>
+<body class="bg-[#fcfcfc] text-[#333]">
+
+    <!-- الصفحة الأولى: اختيار اللغة -->
+    <div id="lang-selection" class="min-h-screen bg-white flex flex-col items-center p-6 text-center relative">
+        <!-- زر العبرية في الأعلى -->
+        <div class="w-full max-w-4xl flex justify-start pt-4 md:pt-10">
+            <button onclick="showSite('he')" class="flex items-center gap-2 text-[#B8860B] font-bold border border-[#B8860B]/20 px-6 py-2 rounded-full hover:bg-[#B8860B]/5 transition-all shadow-sm group">
+                <i data-lucide="globe" class="w-5 h-5 group-hover:rotate-12 transition-transform"></i>
+                עברית
+            </button>
+        </div>
+
+        <div class="flex-1 flex flex-col items-center justify-center -mt-10 md:-mt-20 animate-fade-in">
+            <!-- اللوجو البرمجي -->
+            <div class="flex flex-col items-center select-none font-serif scale-125 md:scale-150 mb-10">
+                <div class="font-bold tracking-[0.15em] leading-none mb-1 gold-gradient text-[80px]" style="text-shadow: 0px 2px 4px rgba(0,0,0,0.1)">LUSH</div>
+                <div class="font-sans tracking-[0.6em] text-[#B8860B] opacity-80 uppercase leading-none text-[14px]" style="margin-right: -0.6em">COSMETICS</div>
+            </div>
+            
+            <div class="space-y-6">
+                <h2 class="text-3xl md:text-5xl font-serif font-bold text-gray-900 leading-tight">
+                    أهلاً بكم في <span class="text-[#B8860B]">لوش كوزمتكس</span>
+                </h2>
+                <p class="text-xl text-gray-500 font-light max-w-lg mx-auto">
+                    ابتكار طبي رائد لإعادة إحياء بشرتك وحمايتها بأيدي أمهر خبراء التجميل.
+                </p>
+                
+                <div class="pt-10">
+                    <button onclick="showSite('ar')" class="px-16 py-5 bg-[#B8860B] text-white rounded-full font-bold text-2xl hover:bg-[#966d09] transition-all shadow-2xl hover:-translate-y-1 active:scale-95">
+                        دخول الموقع باللغة العربية
+                    </button>
+                </div>
+                
+                <div class="flex items-center justify-center gap-4 pt-12 text-[#B8860B]/60">
+                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+                    <span class="text-sm font-bold tracking-widest uppercase">Medical Solutions & Innovation</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="pb-6 text-gray-400 text-xs font-light tracking-widest uppercase">
+            Lush Cosmetics © All Rights Reserved
+        </div>
+    </div>
+
+    <!-- محتوى الموقع (العربي) -->
+    <div id="ar-site" class="hidden-site">
+        <!-- Free Delivery Top Banner -->
+        <div class="bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#B8860B] text-white text-center py-2.5 px-4 text-xs md:text-sm font-bold tracking-wide flex items-center justify-center gap-2 shadow-md">
+            <i data-lucide="truck" class="w-4 h-4"></i>
+            <span>🎁 التوصيل مجاني لجميع المناطق على المجموعة الكاملة</span>
+        </div>
+        <!-- Navigation -->
+        <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 px-4 py-1">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex flex-col items-center select-none font-serif scale-90 md:scale-100">
+                    <div class="font-bold tracking-[0.15em] leading-none mb-1 gold-gradient text-[32px]">LUSH</div>
+                    <div class="font-sans tracking-[0.6em] text-[#B8860B] opacity-80 uppercase leading-none text-[7px]" style="margin-right: -0.6em">COSMETICS</div>
+                </div>
+                
+                <div class="hidden md:flex gap-8 items-center font-medium">
+                    <a href="#ar-hero" class="hover:text-[#B8860B] transition-colors text-xs font-bold uppercase">الرئيسية</a>
+                    <a href="#ar-products" class="hover:text-[#B8860B] transition-colors text-xs font-bold uppercase">منتجاتنا</a>
+                    <a href="#ar-bundle" class="hover:text-[#B8860B] transition-colors text-xs font-bold uppercase">المجموعة الكاملة</a>
+                    <a href="#ar-results" class="hover:text-[#B8860B] transition-colors text-xs font-bold uppercase">النتائج</a>
+                    <button onclick="showSite('he')" class="flex items-center gap-2 p-1.5 px-3 rounded-full border border-[#B8860B]/20 hover:bg-[#B8860B]/5 transition-all">
+                        <i data-lucide="globe" class="w-4 h-4 text-[#B8860B]"></i>
+                        <span class="text-[10px] font-bold">עברי</span>
+                    </button>
+                </div>
+                <a href="https://wa.me/972584996680" target="_blank" class="md:hidden text-[#B8860B]"><i data-lucide="message-circle" class="w-7 h-7"></i></a>
+            </div>
+        </nav>
+
+        <!-- Hero -->
+        <section id="ar-hero" class="relative py-20 px-4 overflow-hidden bg-gradient-to-b from-white to-[#fdfdfd] text-center">
+            <div class="max-w-4xl mx-auto relative z-10">
+                <div class="inline-block px-6 py-2 bg-[#B8860B]/5 border border-[#B8860B]/20 text-[#B8860B] rounded-full text-xs font-bold mb-8 tracking-[0.2em] uppercase">منتجات طبية بامتياز</div>
+                <h1 class="text-3xl md:text-6xl font-serif font-bold mb-8 text-gray-900 leading-tight">Lush Cosmetics: ابتكار طبي بأيدي خبراء التجميل</h1>
+                <p class="text-lg md:text-xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed font-light">نحن لا نقدم مجرد مستحضرات، بل نقدم حلولاً طبية متطورة لإعادة إحياء بشرتك بناءً على خبرة طويلة ونتائج مثبتة.</p>
+                <a href="https://wa.me/972584996680" target="_blank" class="inline-block px-12 py-4 bg-[#B8860B] text-white rounded-full font-bold text-lg hover:bg-[#966d09] transition-all shadow-xl hover:-translate-y-1 active:scale-95">اكتشف مجموعتنا</a>
+                <div class="mt-8 inline-flex items-center gap-2 text-[#B8860B] text-sm font-bold bg-[#B8860B]/5 border border-[#B8860B]/20 px-5 py-2 rounded-full">
+                    <i data-lucide="truck" class="w-4 h-4"></i>
+                    <span>التوصيل مجاني</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products -->
+        <section id="ar-products" class="py-20 px-4 max-w-7xl mx-auto">
+            <div class="flex flex-col items-center mb-16 text-center">
+                <h2 class="text-3xl font-serif font-bold mb-4">مجموعتنا العلاجية</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-transparent via-[#B8860B] to-transparent"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(184,134,11,0.1)] transition-all border border-gray-100 group">
+                    <div class="relative h-72 overflow-hidden bg-gray-50 flex items-center justify-center">
+                        <img src="/assets/whitening-cream.png" alt="كريم التفتيح" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform">
+                        <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-[#B8860B] shadow-sm tracking-wider uppercase">الأكثر طلباً</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1 text-gray-800">الكريم العلاجي المكثف</h3>
+                        <p class="text-[#B8860B] text-[10px] font-black mb-4 uppercase tracking-[0.1em]">كريم التفتيح المتطور</p>
+                        <div class="mb-4 space-y-3 text-xs text-gray-600">
+                            <div class="flex items-center gap-2 bg-gray-50/50 p-2 rounded-xl border border-gray-100">
+                                <i data-lucide="info" class="w-4 h-4 text-[#B8860B]"></i> كوجيك أسيد + ألفا أربوتين
+                            </div>
+                            <p>• تفكيك الميلانين وتفتيح الكلف العميق</p>
+                            <p>• علاج الحبوب النشطة وإزالة آثارها</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-100">
+                            <p class="text-[9px] font-black text-[#B8860B] mb-2 uppercase">طريقة الاستخدام</p>
+                            <p class="text-[11px] text-gray-500 italic bg-[#B8860B]/5 p-2.5 rounded-xl border-l-2 border-[#B8860B]">استعمال ليلي فقط. كمية قليلة جداً.</p>
+                        </div>
+                        <div class="mt-5 space-y-3">
+                            <a href="https://live.payme.io/sale/template/SALE1777-031108IG-FVKASOXT-QXIBSLPE" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-[#B8860B] text-white px-5 py-3.5 rounded-full font-black text-sm hover:bg-[#966d09] transition-all shadow-lg hover:-translate-y-0.5 active:scale-95">
+                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                اشتري كريم التفتيح الآن
+                            </a>
+                            <div class="flex items-center justify-center gap-2 text-[10px] font-bold text-[#B8860B] bg-[#B8860B]/5 border border-[#B8860B]/20 px-3 py-1.5 rounded-full">
+                                <i data-lucide="truck" class="w-3.5 h-3.5"></i>
+                                <span>التوصيل مجاني</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Other products follow same structure... abbreviated for length but included in final code -->
+                
+                <!-- Product 2 -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(184,134,11,0.1)] transition-all border border-gray-100 group">
+                    <div class="relative h-96 overflow-hidden bg-gray-50 flex items-center justify-center">
+                        <img src="/assets/cleanser.png" alt="غسول PhytoDerma Active" class="w-full h-full object-contain group-hover:scale-105 transition-transform scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">صابون الأعشاب المرمم</h3>
+                        <p class="text-[#B8860B] text-[10px] font-black mb-4">Herbal Healing Soap</p>
+                        <div class="mb-4 text-xs text-gray-600 space-y-2">
+                           <p>• تفتيح فوري وإشراقة مخملية</p>
+                           <p>• يساعد في إغلاق المسامات الواسعة</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(184,134,11,0.1)] transition-all border border-gray-100 group">
+                    <div class="relative h-60 overflow-hidden bg-gray-50 flex items-center justify-center">
+                        <img src="/assets/sunscreen.png" alt="Block & Bright واقي الشمس" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform scale-75">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">واقي الشمس الفيزيائي</h3>
+                        <p class="text-[#B8860B] text-[10px] font-black mb-4">SPF 50 Protection</p>
+                        <div class="mb-4 text-xs text-gray-600 space-y-2">
+                           <p>• حماية قصوى لأصحاب التصبغات</p>
+                           <p>• يمنع تكون بقع ميلانين جديدة</p>
+                        </div>
+                        <div class="mt-5 space-y-3">
+                            <a href="https://live.payme.io/sale/template/SALE1777-031147A9-ZAKB4ZUE-KZFW2KND" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-[#B8860B] text-white px-5 py-3.5 rounded-full font-black text-sm hover:bg-[#966d09] transition-all shadow-lg hover:-translate-y-0.5 active:scale-95">
+                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                اشتري كريم الحماية الآن
+                            </a>
+                            <div class="flex items-center justify-center gap-2 text-[10px] font-bold text-[#B8860B] bg-[#B8860B]/5 border border-[#B8860B]/20 px-3 py-1.5 rounded-full">
+                                <i data-lucide="truck" class="w-3.5 h-3.5"></i>
+                                <span>التوصيل مجاني</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(184,134,11,0.1)] transition-all border border-gray-100 group">
+                    <div class="relative h-72 overflow-hidden bg-gray-50 flex items-center justify-center">
+                        <img src="/assets/collagen.png" alt="CollagenMax كريم الكولاجين" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">كريم الكولاجين Booster</h3>
+                        <p class="text-[#B8860B] text-[10px] font-black mb-4">بديل إبر النضارة</p>
+                        <div class="mb-4 text-xs text-gray-600 space-y-2">
+                           <p>• ترطيب فائق ونعومة فورية</p>
+                           <p>• يملأ الخطوط الرفيعة للوجه</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(184,134,11,0.1)] transition-all border border-gray-100 group">
+                    <div class="relative h-72 overflow-hidden bg-gray-50 flex items-center justify-center">
+                        <img src="assets/deodorant-vanilla.png" alt="مزيل عرق طبيعي برائحة الفانيلا" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform">
+                        <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-[#B8860B] shadow-sm tracking-wider uppercase">جديد</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1 text-gray-800">مزيل العرق الطبيعي</h3>
+                        <p class="text-[#B8860B] text-[10px] font-black mb-4 uppercase tracking-[0.1em]">تفتيح ومنع تعرق 48 ساعة</p>
+                        <div class="mb-4 space-y-3 text-xs text-gray-600">
+                            <div class="flex items-center gap-2 bg-gray-50/50 p-2 rounded-xl border border-gray-100">
+                                <i data-lucide="sparkles" class="w-4 h-4 text-[#B8860B]"></i> برائحة الفانيلا الفاخرة
+                            </div>
+                            <p>• تفتيح منطقة تحت الإبط وإزالة الاسمرار</p>
+                            <p>• إزالة العرق ومنع التعرق حتى 48 ساعة</p>
+                            <p>• تركيبة طبيعية 100% آمنة على البشرة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buy Full Collection -->
+        <section id="ar-bundle" class="py-20 px-4 bg-gradient-to-b from-[#fdfbf5] to-white">
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-[#B8860B]/15 grid md:grid-cols-2">
+                    <div class="relative bg-gradient-to-br from-[#fdf6e3] to-[#f5ead0] p-6 flex items-center justify-center">
+                        <img src="/assets/full-collection.png" alt="المجموعة الكاملة من لوش كوزمتكس" class="w-full h-full object-contain">
+                        <div class="absolute top-6 right-6 bg-[#B8860B] text-white px-4 py-2 rounded-full text-[10px] font-black tracking-[0.2em] uppercase shadow-lg">عرض خاص</div>
+                    </div>
+                    <div class="p-8 md:p-12 flex flex-col justify-center text-right">
+                        <p class="text-[#B8860B] text-[10px] font-black mb-3 uppercase tracking-[0.25em]">المجموعة الكاملة</p>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4 leading-tight">اشتري المجموعة كاملة</h2>
+                        <p class="text-gray-500 mb-8 leading-relaxed">احصلي على جميع منتجات لوش كوزمتكس معاً للحصول على أفضل نتيجة لبشرتك.</p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center gap-3 text-sm text-gray-700">
+                                <div class="w-8 h-8 rounded-full bg-[#B8860B]/10 flex items-center justify-center">
+                                    <i data-lucide="truck" class="w-4 h-4 text-[#B8860B]"></i>
+                                </div>
+                                <span class="font-bold">توصيل مجاني</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-700">
+                                <div class="w-8 h-8 rounded-full bg-[#B8860B]/10 flex items-center justify-center">
+                                    <i data-lucide="shield-check" class="w-4 h-4 text-[#B8860B]"></i>
+                                </div>
+                                <span>دفع آمن عبر PayMe</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-700">
+                                <div class="w-8 h-8 rounded-full bg-[#B8860B]/10 flex items-center justify-center">
+                                    <i data-lucide="sparkles" class="w-4 h-4 text-[#B8860B]"></i>
+                                </div>
+                                <span>منتجات أصلية 100%</span>
+                            </div>
+                        </div>
+                        <a href="https://live.payme.io/sale/template/SALE1777-0304186X-NSOJUNQW-WRNNWLBH" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-3 bg-[#B8860B] text-white px-8 py-5 rounded-full font-black text-lg hover:bg-[#966d09] transition-all shadow-xl hover:-translate-y-1 active:scale-95">
+                            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                            اشتري الآن
+                        </a>
+                        <p class="text-xs text-gray-400 mt-4 text-center">للدفع أدخل إلى الرابط</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="ar-results" class="py-20 bg-gray-50 px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-serif font-bold mb-4 flex items-center justify-center gap-3"><i data-lucide="camera" class="text-[#B8860B]"></i> نتائجنا المثبتة</h2>
+                <p class="text-gray-500 mb-12">نتائج حقيقية من زبائننا تظهر الفرق الواضح.</p>
+                <div class="bg-white p-4 rounded-[2.5rem] shadow-xl overflow-hidden border border-[#B8860B]/10">
+                    <img src="/assets/results-before-after.png" alt="نتائج قبل وبعد علاج التصبغات" class="w-full rounded-[2rem]">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                    <div class="bg-white p-4 rounded-[2rem] shadow-lg overflow-hidden border border-[#B8860B]/10">
+                        <img src="/assets/results-he.png" alt="תוצאות לפני ואחרי - פיגמנטציה" class="w-full rounded-[1.5rem]">
+                    </div>
+                    <div class="bg-white p-4 rounded-[2rem] shadow-lg overflow-hidden border border-[#B8860B]/10">
+                        <img src="/assets/usage-routine.png" alt="روتين الاستخدام الصباحي والمسائي" class="w-full rounded-[1.5rem]">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer (Ar) -->
+        <footer class="bg-white pt-20 pb-10 px-4 border-t border-gray-100 text-center">
+            <div class="flex flex-col items-center mb-10">
+                <div class="font-bold tracking-[0.15em] leading-none mb-1 gold-gradient text-[32px]">LUSH</div>
+                <div class="text-[7px] tracking-[0.6em] text-[#B8860B] uppercase">COSMETICS</div>
+            </div>
+            <a href="https://wa.me/972584996680" target="_blank" class="inline-flex items-center gap-4 bg-[#25D366] text-white px-10 py-5 rounded-full font-black text-xl shadow-lg transition-all transform hover:scale-105">
+                <i data-lucide="message-circle" class="w-6 h-6"></i> تواصل معنا عبر واتساب
+            </a>
+        </footer>
+    </div>
+
+    <!-- محتوى الموقع (العبري) -->
+    <div id="he-site" class="hidden-site" dir="ltr">
+        <!-- نسخة مطابقة بالترتيب العبري يتم تفعيلها عبر الجافاسكريبت -->
+        <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 px-4 py-1">
+            <div class="max-w-7xl mx-auto flex justify-between items-center">
+                <div class="flex flex-col items-center font-serif">
+                    <div class="font-bold gold-gradient text-[32px]">LUSH</div>
+                </div>
+                <div class="flex gap-4">
+                    <button onclick="showSite('ar')" class="text-xs font-bold text-[#B8860B]">العربية</button>
+                </div>
+            </div>
+        </nav>
+        <section class="py-20 text-center">
+            <h1 class="text-4xl font-serif font-bold text-gray-900">Lush Cosmetics: פיתוח רפואי</h1>
+            <p class="mt-4 text-gray-500">פתרונות רפואיים מתקדמים להחייאת העור שלך.</p>
+            <div class="mt-10">
+                <a href="https://wa.me/972584996680" class="bg-[#B8860B] text-white px-10 py-4 rounded-full">צרו קשר בווטסאפ</a>
+            </div>
+        </section>
+        <!-- سيتم ملء باقي المحتوى العبري بشكل مماثل للعربي عند الحاجة -->
+    </div>
+
+    <!-- Floating WhatsApp -->
+    <div class="fixed bottom-8 left-8 z-50">
+        <a href="https://wa.me/972584996680" target="_blank" class="bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all flex items-center justify-center">
+            <i data-lucide="message-circle" class="w-7 h-7"></i>
+        </a>
+    </div>
+
+    <script>
+        // تفعيل الأيقونات
+        lucide.createIcons();
+
+        function showSite(lang) {
+            document.getElementById('lang-selection').style.display = 'none';
+            document.getElementById('ar-site').style.display = 'none';
+            document.getElementById('he-site').style.display = 'none';
+
+            if (lang === 'ar') {
+                document.getElementById('ar-site').style.display = 'block';
+                document.documentElement.dir = 'rtl';
+                document.documentElement.lang = 'ar';
+            } else {
+                document.getElementById('he-site').style.display = 'block';
+                document.documentElement.dir = 'ltr';
+                document.documentElement.lang = 'he';
+            }
+            window.scrollTo(0,0);
+        }
+    </script>
+</body>
+</html>
