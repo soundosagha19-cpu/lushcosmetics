@@ -124,7 +124,7 @@
                 <div class="w-16 h-1 bg-gradient-to-r from-transparent via-[#B8860B] to-transparent"></div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Product 1 -->
                 <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(184,134,11,0.1)] transition-all border border-gray-100 group">
                     <div class="relative h-72 overflow-hidden bg-gray-50 flex items-center justify-center">
@@ -233,6 +233,36 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Product 6: Stem Cell Serum -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(184,134,11,0.1)] transition-all border border-gray-100 group">
+                    <div class="relative h-72 overflow-hidden bg-gray-50 flex items-center justify-center">
+                        <img src="/assets/stem-cell-serum.png" alt="سيروم الخلايا الجذعية" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform">
+                        <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-[#B8860B] shadow-sm tracking-wider uppercase">مميز</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1 text-gray-800">سيروم الخلايا الجذعية</h3>
+                        <p class="text-[#B8860B] text-[10px] font-black mb-4 uppercase tracking-[0.1em]">Stem Cell Renewal Serum</p>
+                        <div class="mb-4 space-y-3 text-xs text-gray-600">
+                            <div class="flex items-center gap-2 bg-gray-50/50 p-2 rounded-xl border border-gray-100">
+                                <i data-lucide="sparkles" class="w-4 h-4 text-[#B8860B]"></i> خلايا جذعية نباتية نشطة
+                            </div>
+                            <p>• تجديد خلوي وإعادة بناء عميقة للبشرة</p>
+                            <p>• محاربة التجاعيد وعلامات الشيخوخة</p>
+                            <p>• تعزيز إنتاج الكولاجين الطبيعي</p>
+                        </div>
+                        <div class="mt-5 space-y-3">
+                            <a href="https://live.payme.io/sale/template/SALE1779-869908AM-ZMSV7UIJ-GNV6YIZS" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-[#B8860B] text-white px-5 py-3.5 rounded-full font-black text-sm hover:bg-[#966d09] transition-all shadow-lg hover:-translate-y-0.5 active:scale-95">
+                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                اشتري سيروم الخلايا الجذعية
+                            </a>
+                            <div class="flex items-center justify-center gap-2 text-[10px] font-bold text-[#B8860B] bg-[#B8860B]/5 border border-[#B8860B]/20 px-3 py-1.5 rounded-full">
+                                <i data-lucide="truck" class="w-3.5 h-3.5"></i>
+                                <span>التوصيل مجاني</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -310,26 +340,267 @@
     </div>
 
     <!-- محتوى الموقع (العبري) -->
-    <div id="he-site" class="hidden-site" dir="ltr">
-        <!-- نسخة مطابقة بالترتيب العبري يتم تفعيلها عبر الجافاسكريبت -->
+    <div id="he-site" class="hidden-site" dir="rtl">
+        <!-- Free Delivery Top Banner -->
+        <div class="bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#B8860B] text-white text-center py-2.5 px-4 text-xs md:text-sm font-bold tracking-wide flex items-center justify-center gap-2 shadow-md">
+            <i data-lucide="truck" class="w-4 h-4"></i>
+            <span>🎁 משלוח חינם לכל האזורים על הקולקציה המלאה</span>
+        </div>
+        <!-- Navigation -->
         <nav class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-100 px-4 py-1">
             <div class="max-w-7xl mx-auto flex justify-between items-center">
-                <div class="flex flex-col items-center font-serif">
-                    <div class="font-bold gold-gradient text-[32px]">LUSH</div>
+                <div class="flex flex-col items-center select-none font-serif scale-90 md:scale-100">
+                    <div class="font-bold tracking-[0.15em] leading-none mb-1 gold-gradient text-[32px]">LUSH</div>
+                    <div class="font-sans tracking-[0.6em] text-[#B8860B] opacity-80 uppercase leading-none text-[7px]" style="margin-right: -0.6em">COSMETICS</div>
                 </div>
-                <div class="flex gap-4">
-                    <button onclick="showSite('ar')" class="text-xs font-bold text-[#B8860B]">العربية</button>
+
+                <div class="hidden md:flex gap-8 items-center font-medium">
+                    <a href="#he-hero" class="hover:text-[#B8860B] transition-colors text-xs font-bold uppercase">דף הבית</a>
+                    <a href="#he-products" class="hover:text-[#B8860B] transition-colors text-xs font-bold uppercase">המוצרים שלנו</a>
+                    <a href="#he-bundle" class="hover:text-[#B8860B] transition-colors text-xs font-bold uppercase">הקולקציה המלאה</a>
+                    <a href="#he-results" class="hover:text-[#B8860B] transition-colors text-xs font-bold uppercase">תוצאות</a>
+                    <button onclick="showSite('ar')" class="flex items-center gap-2 p-1.5 px-3 rounded-full border border-[#B8860B]/20 hover:bg-[#B8860B]/5 transition-all">
+                        <i data-lucide="globe" class="w-4 h-4 text-[#B8860B]"></i>
+                        <span class="text-[10px] font-bold">العربية</span>
+                    </button>
                 </div>
+                <a href="https://wa.me/972584996680" target="_blank" class="md:hidden text-[#B8860B]"><i data-lucide="message-circle" class="w-7 h-7"></i></a>
             </div>
         </nav>
-        <section class="py-20 text-center">
-            <h1 class="text-4xl font-serif font-bold text-gray-900">Lush Cosmetics: פיתוח רפואי</h1>
-            <p class="mt-4 text-gray-500">פתרונות רפואיים מתקדמים להחייאת העור שלך.</p>
-            <div class="mt-10">
-                <a href="https://wa.me/972584996680" class="bg-[#B8860B] text-white px-10 py-4 rounded-full">צרו קשר בווטסאפ</a>
+
+        <!-- Hero -->
+        <section id="he-hero" class="relative py-20 px-4 overflow-hidden bg-gradient-to-b from-white to-[#fdfdfd] text-center">
+            <div class="max-w-4xl mx-auto relative z-10">
+                <div class="inline-block px-6 py-2 bg-[#B8860B]/5 border border-[#B8860B]/20 text-[#B8860B] rounded-full text-xs font-bold mb-8 tracking-[0.2em] uppercase">מוצרים רפואיים מעולים</div>
+                <h1 class="text-3xl md:text-6xl font-serif font-bold mb-8 text-gray-900 leading-tight">Lush Cosmetics: חדשנות רפואית בידי מומחי קוסמטיקה</h1>
+                <p class="text-lg md:text-xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed font-light">אנחנו לא מציעים רק מוצרים, אלא פתרונות רפואיים מתקדמים להחייאת העור שלך בהתבסס על ניסיון רב ותוצאות מוכחות.</p>
+                <a href="https://wa.me/972584996680" target="_blank" class="inline-block px-12 py-4 bg-[#B8860B] text-white rounded-full font-bold text-lg hover:bg-[#966d09] transition-all shadow-xl hover:-translate-y-1 active:scale-95">גלו את הקולקציה שלנו</a>
+                <div class="mt-8 inline-flex items-center gap-2 text-[#B8860B] text-sm font-bold bg-[#B8860B]/5 border border-[#B8860B]/20 px-5 py-2 rounded-full">
+                    <i data-lucide="truck" class="w-4 h-4"></i>
+                    <span>משלוח חינם</span>
+                </div>
             </div>
         </section>
-        <!-- سيتم ملء باقي المحتوى العبري بشكل مماثل للعربي عند الحاجة -->
+
+        <!-- Products -->
+        <section id="he-products" class="py-20 px-4 max-w-7xl mx-auto">
+            <div class="flex flex-col items-center mb-16 text-center">
+                <h2 class="text-3xl font-serif font-bold mb-4">הקולקציה הטיפולית שלנו</h2>
+                <div class="w-16 h-1 bg-gradient-to-r from-transparent via-[#B8860B] to-transparent"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(184,134,11,0.1)] transition-all border border-gray-100 group">
+                    <div class="relative h-72 overflow-hidden bg-gray-50 flex items-center justify-center">
+                        <img src="/assets/whitening-cream.png" alt="קרם הבהרה" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform">
+                        <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-[#B8860B] shadow-sm tracking-wider uppercase">הנמכר ביותר</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1 text-gray-800">קרם טיפולי אינטנסיבי</h3>
+                        <p class="text-[#B8860B] text-[10px] font-black mb-4 uppercase tracking-[0.1em]">קרם הבהרה מתקדם</p>
+                        <div class="mb-4 space-y-3 text-xs text-gray-600">
+                            <div class="flex items-center gap-2 bg-gray-50/50 p-2 rounded-xl border border-gray-100">
+                                <i data-lucide="info" class="w-4 h-4 text-[#B8860B]"></i> חומצת קוג'ית + אלפא ארבוטין
+                            </div>
+                            <p>• פירוק מלנין והבהרת כתמים עמוקים</p>
+                            <p>• טיפול בפצעונים פעילים והסרת סימניהם</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-gray-100">
+                            <p class="text-[9px] font-black text-[#B8860B] mb-2 uppercase">אופן השימוש</p>
+                            <p class="text-[11px] text-gray-500 italic bg-[#B8860B]/5 p-2.5 rounded-xl border-r-2 border-[#B8860B]">שימוש לילי בלבד. כמות קטנה מאוד.</p>
+                        </div>
+                        <div class="mt-5 space-y-3">
+                            <a href="https://live.payme.io/sale/template/SALE1777-031108IG-FVKASOXT-QXIBSLPE" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-[#B8860B] text-white px-5 py-3.5 rounded-full font-black text-sm hover:bg-[#966d09] transition-all shadow-lg hover:-translate-y-0.5 active:scale-95">
+                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                קנו את קרם ההבהרה עכשיו
+                            </a>
+                            <div class="flex items-center justify-center gap-2 text-[10px] font-bold text-[#B8860B] bg-[#B8860B]/5 border border-[#B8860B]/20 px-3 py-1.5 rounded-full">
+                                <i data-lucide="truck" class="w-3.5 h-3.5"></i>
+                                <span>משלוח חינם</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(184,134,11,0.1)] transition-all border border-gray-100 group">
+                    <div class="relative h-96 overflow-hidden bg-gray-50 flex items-center justify-center">
+                        <img src="/assets/cleanser.png" alt="סבון צמחי PhytoDerma Active" class="w-full h-full object-contain group-hover:scale-105 transition-transform scale-110">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">סבון צמחי משקם</h3>
+                        <p class="text-[#B8860B] text-[10px] font-black mb-4">Herbal Healing Soap</p>
+                        <div class="mb-4 text-xs text-gray-600 space-y-2">
+                           <p>• הבהרה מיידית וזוהר קטיפתי</p>
+                           <p>• מסייע בסגירת נקבוביות רחבות</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(184,134,11,0.1)] transition-all border border-gray-100 group">
+                    <div class="relative h-60 overflow-hidden bg-gray-50 flex items-center justify-center">
+                        <img src="/assets/sunscreen.png" alt="קרם הגנה Block & Bright" class="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform scale-75">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">קרם הגנה פיזיקלי מהשמש</h3>
+                        <p class="text-[#B8860B] text-[10px] font-black mb-4">SPF 50 Protection</p>
+                        <div class="mb-4 text-xs text-gray-600 space-y-2">
+                           <p>• הגנה מקסימלית לבעלי פיגמנטציה</p>
+                           <p>• מונע היווצרות כתמי מלנין חדשים</p>
+                        </div>
+                        <div class="mt-5 space-y-3">
+                            <a href="https://live.payme.io/sale/template/SALE1777-031147A9-ZAKB4ZUE-KZFW2KND" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-[#B8860B] text-white px-5 py-3.5 rounded-full font-black text-sm hover:bg-[#966d09] transition-all shadow-lg hover:-translate-y-0.5 active:scale-95">
+                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                קנו את קרם ההגנה עכשיו
+                            </a>
+                            <div class="flex items-center justify-center gap-2 text-[10px] font-bold text-[#B8860B] bg-[#B8860B]/5 border border-[#B8860B]/20 px-3 py-1.5 rounded-full">
+                                <i data-lucide="truck" class="w-3.5 h-3.5"></i>
+                                <span>משלוח חינם</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(184,134,11,0.1)] transition-all border border-gray-100 group">
+                    <div class="relative h-72 overflow-hidden bg-gray-50 flex items-center justify-center">
+                        <img src="/assets/collagen.png" alt="קרם קולגן CollagenMax" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">קרם קולגן Booster</h3>
+                        <p class="text-[#B8860B] text-[10px] font-black mb-4">תחליף לזריקות רעננות</p>
+                        <div class="mb-4 text-xs text-gray-600 space-y-2">
+                           <p>• לחות מעולה ורכות מיידית</p>
+                           <p>• ממלא קווים דקים בפנים</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(184,134,11,0.1)] transition-all border border-gray-100 group">
+                    <div class="relative h-72 overflow-hidden bg-gray-50 flex items-center justify-center">
+                        <img src="assets/deodorant-vanilla.png" alt="דאודורנט טבעי בניחוח וניל" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform">
+                        <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-[#B8860B] shadow-sm tracking-wider uppercase">חדש</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1 text-gray-800">דאודורנט טבעי</h3>
+                        <p class="text-[#B8860B] text-[10px] font-black mb-4 uppercase tracking-[0.1em]">הבהרה ומניעת הזעה 48 שעות</p>
+                        <div class="mb-4 space-y-3 text-xs text-gray-600">
+                            <div class="flex items-center gap-2 bg-gray-50/50 p-2 rounded-xl border border-gray-100">
+                                <i data-lucide="sparkles" class="w-4 h-4 text-[#B8860B]"></i> בניחוח וניל יוקרתי
+                            </div>
+                            <p>• הבהרת אזור בית השחי והסרת כהות</p>
+                            <p>• הסרת ריח ומניעת הזעה עד 48 שעות</p>
+                            <p>• פורמולה טבעית 100% בטוחה לעור</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6: Stem Cell Serum -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(184,134,11,0.1)] transition-all border border-gray-100 group">
+                    <div class="relative h-72 overflow-hidden bg-gray-50 flex items-center justify-center">
+                        <img src="/assets/stem-cell-serum.png" alt="סרום תאי גזע" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform">
+                        <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-[#B8860B] shadow-sm tracking-wider uppercase">מיוחד</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1 text-gray-800">סרום תאי גזע</h3>
+                        <p class="text-[#B8860B] text-[10px] font-black mb-4 uppercase tracking-[0.1em]">Stem Cell Renewal Serum</p>
+                        <div class="mb-4 space-y-3 text-xs text-gray-600">
+                            <div class="flex items-center gap-2 bg-gray-50/50 p-2 rounded-xl border border-gray-100">
+                                <i data-lucide="sparkles" class="w-4 h-4 text-[#B8860B]"></i> תאי גזע צמחיים פעילים
+                            </div>
+                            <p>• התחדשות תאית ושיקום עמוק של העור</p>
+                            <p>• מלחמה בקמטים ובסימני הזדקנות</p>
+                            <p>• עידוד ייצור קולגן טבעי</p>
+                        </div>
+                        <div class="mt-5 space-y-3">
+                            <a href="https://live.payme.io/sale/template/SALE1779-869908AM-ZMSV7UIJ-GNV6YIZS" target="_blank" rel="noopener" class="flex items-center justify-center gap-2 bg-[#B8860B] text-white px-5 py-3.5 rounded-full font-black text-sm hover:bg-[#966d09] transition-all shadow-lg hover:-translate-y-0.5 active:scale-95">
+                                <i data-lucide="shopping-bag" class="w-4 h-4"></i>
+                                קנו את סרום תאי הגזע
+                            </a>
+                            <div class="flex items-center justify-center gap-2 text-[10px] font-bold text-[#B8860B] bg-[#B8860B]/5 border border-[#B8860B]/20 px-3 py-1.5 rounded-full">
+                                <i data-lucide="truck" class="w-3.5 h-3.5"></i>
+                                <span>משלוח חינם</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buy Full Collection -->
+        <section id="he-bundle" class="py-20 px-4 bg-gradient-to-b from-[#fdfbf5] to-white">
+            <div class="max-w-5xl mx-auto">
+                <div class="bg-white rounded-[2.5rem] shadow-2xl overflow-hidden border border-[#B8860B]/15 grid md:grid-cols-2">
+                    <div class="relative bg-gradient-to-br from-[#fdf6e3] to-[#f5ead0] p-6 flex items-center justify-center">
+                        <img src="/assets/full-collection.png" alt="הקולקציה המלאה של לוש קוסמטיקס" class="w-full h-full object-contain">
+                        <div class="absolute top-6 right-6 bg-[#B8860B] text-white px-4 py-2 rounded-full text-[10px] font-black tracking-[0.2em] uppercase shadow-lg">מבצע מיוחד</div>
+                    </div>
+                    <div class="p-8 md:p-12 flex flex-col justify-center text-right">
+                        <p class="text-[#B8860B] text-[10px] font-black mb-3 uppercase tracking-[0.25em]">הקולקציה המלאה</p>
+                        <h2 class="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-4 leading-tight">קנו את הקולקציה המלאה</h2>
+                        <p class="text-gray-500 mb-8 leading-relaxed">קבלו את כל מוצרי לוש קוסמטיקס יחד לתוצאה הטובה ביותר לעור שלכם.</p>
+                        <div class="space-y-3 mb-8">
+                            <div class="flex items-center gap-3 text-sm text-gray-700">
+                                <div class="w-8 h-8 rounded-full bg-[#B8860B]/10 flex items-center justify-center">
+                                    <i data-lucide="truck" class="w-4 h-4 text-[#B8860B]"></i>
+                                </div>
+                                <span class="font-bold">משלוח חינם</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-700">
+                                <div class="w-8 h-8 rounded-full bg-[#B8860B]/10 flex items-center justify-center">
+                                    <i data-lucide="shield-check" class="w-4 h-4 text-[#B8860B]"></i>
+                                </div>
+                                <span>תשלום מאובטח דרך PayMe</span>
+                            </div>
+                            <div class="flex items-center gap-3 text-sm text-gray-700">
+                                <div class="w-8 h-8 rounded-full bg-[#B8860B]/10 flex items-center justify-center">
+                                    <i data-lucide="sparkles" class="w-4 h-4 text-[#B8860B]"></i>
+                                </div>
+                                <span>מוצרים מקוריים 100%</span>
+                            </div>
+                        </div>
+                        <a href="https://live.payme.io/sale/template/SALE1777-0304186X-NSOJUNQW-WRNNWLBH" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-3 bg-[#B8860B] text-white px-8 py-5 rounded-full font-black text-lg hover:bg-[#966d09] transition-all shadow-xl hover:-translate-y-1 active:scale-95">
+                            <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                            קנו עכשיו
+                        </a>
+                        <p class="text-xs text-gray-400 mt-4 text-center">לתשלום לחצו על הקישור</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Section -->
+        <section id="he-results" class="py-20 bg-gray-50 px-4">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 class="text-3xl font-serif font-bold mb-4 flex items-center justify-center gap-3"><i data-lucide="camera" class="text-[#B8860B]"></i> התוצאות המוכחות שלנו</h2>
+                <p class="text-gray-500 mb-12">תוצאות אמיתיות מלקוחותינו שמראות את ההבדל הברור.</p>
+                <div class="bg-white p-4 rounded-[2.5rem] shadow-xl overflow-hidden border border-[#B8860B]/10">
+                    <img src="/assets/results-before-after.png" alt="תוצאות לפני ואחרי טיפול בפיגמנטציה" class="w-full rounded-[2rem]">
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                    <div class="bg-white p-4 rounded-[2rem] shadow-lg overflow-hidden border border-[#B8860B]/10">
+                        <img src="/assets/results-he.png" alt="תוצאות לפני ואחרי - פיגמנטציה" class="w-full rounded-[1.5rem]">
+                    </div>
+                    <div class="bg-white p-4 rounded-[2rem] shadow-lg overflow-hidden border border-[#B8860B]/10">
+                        <img src="/assets/usage-routine.png" alt="שגרת שימוש בוקר וערב" class="w-full rounded-[1.5rem]">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer (He) -->
+        <footer class="bg-white pt-20 pb-10 px-4 border-t border-gray-100 text-center">
+            <div class="flex flex-col items-center mb-10">
+                <div class="font-bold tracking-[0.15em] leading-none mb-1 gold-gradient text-[32px]">LUSH</div>
+                <div class="text-[7px] tracking-[0.6em] text-[#B8860B] uppercase">COSMETICS</div>
+            </div>
+            <a href="https://wa.me/972584996680" target="_blank" class="inline-flex items-center gap-4 bg-[#25D366] text-white px-10 py-5 rounded-full font-black text-xl shadow-lg transition-all transform hover:scale-105">
+                <i data-lucide="message-circle" class="w-6 h-6"></i> צרו קשר בוואטסאפ
+            </a>
+        </footer>
     </div>
 
     <!-- Floating WhatsApp -->
@@ -354,10 +625,11 @@
                 document.documentElement.lang = 'ar';
             } else {
                 document.getElementById('he-site').style.display = 'block';
-                document.documentElement.dir = 'ltr';
+                document.documentElement.dir = 'rtl';
                 document.documentElement.lang = 'he';
             }
             window.scrollTo(0,0);
+            lucide.createIcons();
         }
     </script>
 </body>
