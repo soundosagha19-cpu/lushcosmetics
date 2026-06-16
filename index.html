@@ -27,6 +27,39 @@
         }
 
         .hidden-site { display: none; }
+
+        .modal-overlay {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 100;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; pointer-events: none; transition: opacity 0.3s ease;
+            padding: 1rem;
+        }
+        .modal-overlay.active { opacity: 1; pointer-events: all; }
+        .modal-content {
+            background: white; border-radius: 2rem; max-width: 640px; width: 100%;
+            max-height: 90vh; overflow-y: auto; transform: translateY(30px) scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+        }
+        .modal-overlay.active .modal-content { transform: translateY(0) scale(1); }
+
+        .pulse-glow {
+            animation: pulseGlow 2.5s ease-in-out infinite;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(184,134,11,0.3); }
+            50% { box-shadow: 0 0 40px rgba(184,134,11,0.6), 0 0 60px rgba(212,175,55,0.2); }
+        }
+
+        .offer-shimmer {
+            background: linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.3) 50%, transparent 70%);
+            background-size: 200% 100%;
+            animation: shimmer 3s infinite;
+        }
+        @keyframes shimmer {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
     </style>
 </head>
 <body class="bg-[#fcfcfc] text-[#333]">
@@ -91,8 +124,9 @@
                 
                 <div class="hidden md:flex gap-8 items-center font-medium">
                     <a href="#ar-hero" class="hover:text-[#B8860B] transition-colors text-xs font-bold uppercase">الرئيسية</a>
+                    <a href="#ar-serum" class="hover:text-[#B8860B] transition-colors text-xs font-bold uppercase">سيروم الخلايا الجذعية</a>
                     <a href="#ar-products" class="hover:text-[#B8860B] transition-colors text-xs font-bold uppercase">منتجاتنا</a>
-                    <a href="#ar-bundle" class="hover:text-[#B8860B] transition-colors text-xs font-bold uppercase">المجموعة الكاملة</a>
+                    <a href="#ar-offers" class="hover:text-[#B8860B] transition-colors text-xs font-bold uppercase">العروض الحصرية</a>
                     <a href="#ar-results" class="hover:text-[#B8860B] transition-colors text-xs font-bold uppercase">النتائج</a>
                     <button onclick="showSite('he')" class="flex items-center gap-2 p-1.5 px-3 rounded-full border border-[#B8860B]/20 hover:bg-[#B8860B]/5 transition-all">
                         <i data-lucide="globe" class="w-4 h-4 text-[#B8860B]"></i>
@@ -109,10 +143,130 @@
                 <div class="inline-block px-6 py-2 bg-[#B8860B]/5 border border-[#B8860B]/20 text-[#B8860B] rounded-full text-xs font-bold mb-8 tracking-[0.2em] uppercase">منتجات طبية بامتياز</div>
                 <h1 class="text-3xl md:text-6xl font-serif font-bold mb-8 text-gray-900 leading-tight">Lush Cosmetics: ابتكار طبي بأيدي خبراء التجميل</h1>
                 <p class="text-lg md:text-xl text-gray-500 mb-12 max-w-2xl mx-auto leading-relaxed font-light">نحن لا نقدم مجرد مستحضرات، بل نقدم حلولاً طبية متطورة لإعادة إحياء بشرتك بناءً على خبرة طويلة ونتائج مثبتة.</p>
-                <a href="https://wa.me/972584996680" target="_blank" class="inline-block px-12 py-4 bg-[#B8860B] text-white rounded-full font-bold text-lg hover:bg-[#966d09] transition-all shadow-xl hover:-translate-y-1 active:scale-95">اكتشف مجموعتنا</a>
+                <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+                    <a href="https://wa.me/972584996680" target="_blank" class="inline-block px-12 py-4 bg-[#B8860B] text-white rounded-full font-bold text-lg hover:bg-[#966d09] transition-all shadow-xl hover:-translate-y-1 active:scale-95">اكتشف مجموعتنا</a>
+                    <button onclick="openSerumModal()" class="inline-flex items-center gap-2 px-10 py-4 bg-gradient-to-r from-[#B8860B] to-[#D4AF37] text-white rounded-full font-bold text-lg hover:from-[#966d09] hover:to-[#B8860B] transition-all shadow-xl hover:-translate-y-1 active:scale-95 pulse-glow">
+                        <i data-lucide="flask-conical" class="w-5 h-5"></i>
+                        سيروم الخلايا الجذعية
+                    </button>
+                </div>
                 <div class="mt-8 inline-flex items-center gap-2 text-[#B8860B] text-sm font-bold bg-[#B8860B]/5 border border-[#B8860B]/20 px-5 py-2 rounded-full">
                     <i data-lucide="truck" class="w-4 h-4"></i>
                     <span>التوصيل مجاني</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stem Cell Serum Section -->
+        <section id="ar-serum" class="py-20 px-4 bg-gradient-to-b from-[#fdfbf5] to-white relative overflow-hidden">
+            <div class="absolute inset-0 opacity-5" style="background-image: radial-gradient(circle at 20% 50%, #D4AF37 1px, transparent 1px), radial-gradient(circle at 80% 20%, #B8860B 1px, transparent 1px); background-size: 60px 60px;"></div>
+            <div class="max-w-5xl mx-auto relative z-10">
+                <div class="text-center mb-12">
+                    <div class="inline-block px-6 py-2 bg-[#B8860B]/10 border border-[#B8860B]/30 text-[#B8860B] rounded-full text-xs font-black mb-6 tracking-[0.25em] uppercase">ابتكار علمي متطور</div>
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-gray-900 mb-4 leading-tight">سيروم الخلايا الجذعية للتجديد</h2>
+                    <p class="text-lg text-gray-500 max-w-2xl mx-auto">تقنية متقدمة تعيد برمجة خلايا بشرتك من الداخل لتحقيق نضارة وشباب دائم</p>
+                </div>
+
+                <div class="bg-white rounded-[2.5rem] shadow-2xl border border-[#B8860B]/15 overflow-hidden">
+                    <div class="bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#B8860B] p-6 text-white text-center">
+                        <h3 class="text-2xl font-serif font-bold flex items-center justify-center gap-3">
+                            <i data-lucide="dna" class="w-6 h-6"></i>
+                            Stem Cell Renewal Serum
+                        </h3>
+                    </div>
+                    <div class="p-8 md:p-12">
+                        <div class="flex justify-center mb-10">
+                            <div class="bg-gradient-to-br from-[#fdf6e3] to-[#f5ead0] rounded-[2rem] p-6 border border-[#B8860B]/15 shadow-inner">
+                                <img src="/assets/stem-cell-serum.png" alt="عبوة سيروم الخلايا الجذعية من لوش كوزمتكس" class="h-72 md:h-80 w-auto object-contain mx-auto drop-shadow-xl">
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+                            <div class="space-y-5">
+                                <h4 class="text-xl font-bold text-gray-800 flex items-center gap-2">
+                                    <i data-lucide="sparkles" class="w-5 h-5 text-[#B8860B]"></i>
+                                    المكونات الفعالة
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-start gap-3 bg-[#B8860B]/5 p-4 rounded-2xl border border-[#B8860B]/10">
+                                        <div class="w-8 h-8 rounded-full bg-[#B8860B]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                            <i data-lucide="atom" class="w-4 h-4 text-[#B8860B]"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-sm text-gray-800">خلاصة الخلايا الجذعية النباتية</p>
+                                            <p class="text-xs text-gray-500">تحفز تجدد الخلايا وتعيد بناء الأنسجة التالفة</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3 bg-[#B8860B]/5 p-4 rounded-2xl border border-[#B8860B]/10">
+                                        <div class="w-8 h-8 rounded-full bg-[#B8860B]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                            <i data-lucide="droplets" class="w-4 h-4 text-[#B8860B]"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-sm text-gray-800">حمض الهيالورونيك المركز</p>
+                                            <p class="text-xs text-gray-500">ترطيب عميق يدوم حتى 72 ساعة</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start gap-3 bg-[#B8860B]/5 p-4 rounded-2xl border border-[#B8860B]/10">
+                                        <div class="w-8 h-8 rounded-full bg-[#B8860B]/10 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                            <i data-lucide="shield-check" class="w-4 h-4 text-[#B8860B]"></i>
+                                        </div>
+                                        <div>
+                                            <p class="font-bold text-sm text-gray-800">ببتيدات مضادة للشيخوخة</p>
+                                            <p class="text-xs text-gray-500">تحارب التجاعيد وتشد البشرة بشكل ملحوظ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-5">
+                                <h4 class="text-xl font-bold text-gray-800 flex items-center gap-2">
+                                    <i data-lucide="check-circle" class="w-5 h-5 text-[#B8860B]"></i>
+                                    الفوائد الرئيسية
+                                </h4>
+                                <div class="space-y-3">
+                                    <div class="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-[#B8860B]/5 to-transparent border-r-2 border-[#B8860B]">
+                                        <i data-lucide="chevron-left" class="w-4 h-4 text-[#B8860B]"></i>
+                                        <span class="text-sm text-gray-700 font-medium">تجديد خلايا البشرة وتحفيز إنتاج الكولاجين</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-[#B8860B]/5 to-transparent border-r-2 border-[#B8860B]">
+                                        <i data-lucide="chevron-left" class="w-4 h-4 text-[#B8860B]"></i>
+                                        <span class="text-sm text-gray-700 font-medium">إزالة التجاعيد والخطوط الدقيقة</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-[#B8860B]/5 to-transparent border-r-2 border-[#B8860B]">
+                                        <i data-lucide="chevron-left" class="w-4 h-4 text-[#B8860B]"></i>
+                                        <span class="text-sm text-gray-700 font-medium">توحيد لون البشرة ومحاربة التصبغات</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-[#B8860B]/5 to-transparent border-r-2 border-[#B8860B]">
+                                        <i data-lucide="chevron-left" class="w-4 h-4 text-[#B8860B]"></i>
+                                        <span class="text-sm text-gray-700 font-medium">نضارة فورية وبشرة مشدودة كالحرير</span>
+                                    </div>
+                                    <div class="flex items-center gap-3 p-3 rounded-xl bg-gradient-to-r from-[#B8860B]/5 to-transparent border-r-2 border-[#B8860B]">
+                                        <i data-lucide="chevron-left" class="w-4 h-4 text-[#B8860B]"></i>
+                                        <span class="text-sm text-gray-700 font-medium">حماية البشرة من عوامل الشيخوخة المبكرة</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-[#fdf6e3] to-[#f5ead0] rounded-2xl p-6 mb-8 border border-[#B8860B]/15">
+                            <div class="flex items-start gap-3">
+                                <i data-lucide="info" class="w-5 h-5 text-[#B8860B] mt-0.5 flex-shrink-0"></i>
+                                <div>
+                                    <p class="font-bold text-sm text-[#B8860B] mb-1">طريقة الاستخدام</p>
+                                    <p class="text-sm text-gray-600">يُوضع السيروم على بشرة نظيفة صباحاً ومساءً. ضعي 3-4 قطرات على الوجه والرقبة مع التدليك بحركات دائرية للأعلى حتى يمتص بالكامل. للحصول على أفضل النتائج، يُستخدم قبل الكريم المرطب.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
+                            <a href="https://wa.me/972584996680?text=أهلاً، أرغب بالاستفسار عن سيروم الخلايا الجذعية" target="_blank" class="flex items-center justify-center gap-3 bg-[#B8860B] text-white px-10 py-4 rounded-full font-black text-lg hover:bg-[#966d09] transition-all shadow-xl hover:-translate-y-1 active:scale-95 w-full sm:w-auto">
+                                <i data-lucide="message-circle" class="w-5 h-5"></i>
+                                اطلب السيروم الآن
+                            </a>
+                            <button onclick="openSerumModal()" class="flex items-center justify-center gap-2 text-[#B8860B] font-bold border-2 border-[#B8860B] px-8 py-4 rounded-full hover:bg-[#B8860B]/5 transition-all w-full sm:w-auto">
+                                <i data-lucide="file-text" class="w-5 h-5"></i>
+                                تفاصيل إضافية
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -233,6 +387,151 @@
                         </div>
                     </div>
                 </div>
+
+                <!-- Product 6: Retinol Eye Cream -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(184,134,11,0.1)] transition-all border border-gray-100 group">
+                    <div class="relative h-72 overflow-hidden bg-gradient-to-br from-[#fdf6e3] to-[#f5ead0] flex flex-col items-center justify-center">
+                        <i data-lucide="eye" class="w-16 h-16 text-[#B8860B] mb-3"></i>
+                        <div class="font-serif text-xl font-bold text-[#8B6508]">Eye Renewal</div>
+                        <div class="text-[9px] tracking-[0.3em] text-[#B8860B] font-bold uppercase mt-1">Volumetox Tech</div>
+                        <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-[#B8860B] shadow-sm tracking-wider uppercase">تكنولوجيا جديدة</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1 text-gray-800">كريم الريتنول المكثف للعين</h3>
+                        <p class="text-[#B8860B] text-[10px] font-black mb-4 uppercase tracking-[0.1em]">Retinol Eye Cream Technology</p>
+                        <div class="mb-4 space-y-3 text-xs text-gray-600">
+                            <div class="flex items-center gap-2 bg-gray-50/50 p-2 rounded-xl border border-gray-100">
+                                <i data-lucide="eye" class="w-4 h-4 text-[#B8860B]"></i> كافيين نشط + ريتيل بالميتات
+                            </div>
+                            <p>• إزالة الهالات السوداء والانتفاخات فوراً</p>
+                            <p>• شد ورفع منطقة محيط العين</p>
+                            <p>• ترطيب عميق بحمض الهيالورونيك والسكوالان</p>
+                        </div>
+                        <div class="mt-5 space-y-3">
+                            <a href="/retinol-eye-cream.html" class="flex items-center justify-center gap-2 bg-[#B8860B] text-white px-5 py-3.5 rounded-full font-black text-sm hover:bg-[#966d09] transition-all shadow-lg hover:-translate-y-0.5 active:scale-95">
+                                <i data-lucide="arrow-left" class="w-4 h-4"></i>
+                                اكتشفي المنتج
+                            </a>
+                            <div class="flex items-center justify-center gap-2 text-[10px] font-bold text-[#B8860B] bg-[#B8860B]/5 border border-[#B8860B]/20 px-3 py-1.5 rounded-full">
+                                <i data-lucide="truck" class="w-3.5 h-3.5"></i>
+                                <span>التوصيل مجاني</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7: Stem Cell Serum -->
+                <div class="bg-white rounded-[1.5rem] overflow-hidden shadow-sm hover:shadow-[0_20px_50px_rgba(184,134,11,0.1)] transition-all border border-gray-100 group">
+                    <div class="relative h-72 overflow-hidden bg-gray-50 flex items-center justify-center">
+                        <img src="/assets/stem-cell-serum.png" alt="سيروم الخلايا الجذعية من لوش كوزمتكس" class="w-full h-full object-contain p-2 group-hover:scale-105 transition-transform">
+                        <div class="absolute top-4 right-4 bg-white/95 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold text-[#B8860B] shadow-sm tracking-wider uppercase">ابتكار علمي</div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1 text-gray-800">سيروم الخلايا الجذعية</h3>
+                        <p class="text-[#B8860B] text-[10px] font-black mb-4 uppercase tracking-[0.1em]">Stem Cell Renewal Serum</p>
+                        <div class="mb-4 space-y-3 text-xs text-gray-600">
+                            <div class="flex items-center gap-2 bg-gray-50/50 p-2 rounded-xl border border-gray-100">
+                                <i data-lucide="atom" class="w-4 h-4 text-[#B8860B]"></i> خلايا جذعية نباتية + هيالورونيك
+                            </div>
+                            <p>• تجديد خلايا البشرة وتحفيز الكولاجين</p>
+                            <p>• إزالة التجاعيد والخطوط الدقيقة</p>
+                            <p>• نضارة فورية وترطيب 72 ساعة</p>
+                        </div>
+                        <div class="mt-5 space-y-3">
+                            <a href="https://wa.me/972584996680?text=أهلاً، أرغب بالاستفسار عن سيروم الخلايا الجذعية" target="_blank" class="flex items-center justify-center gap-2 bg-gradient-to-r from-[#B8860B] to-[#D4AF37] text-white px-5 py-3.5 rounded-full font-black text-sm hover:from-[#966d09] hover:to-[#B8860B] transition-all shadow-lg hover:-translate-y-0.5 active:scale-95">
+                                <i data-lucide="flask-conical" class="w-4 h-4"></i>
+                                اطلب السيروم الآن
+                            </a>
+                            <div class="flex items-center justify-center gap-2 text-[10px] font-bold text-[#B8860B] bg-[#B8860B]/5 border border-[#B8860B]/20 px-3 py-1.5 rounded-full">
+                                <i data-lucide="truck" class="w-3.5 h-3.5"></i>
+                                <span>التوصيل مجاني</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exclusive Offers -->
+        <section id="ar-offers" class="py-20 px-4 bg-gradient-to-b from-white to-[#fdfbf5]">
+            <div class="max-w-6xl mx-auto">
+                <div class="text-center mb-14">
+                    <div class="inline-block px-6 py-2 bg-red-50 border border-red-200 text-red-600 rounded-full text-xs font-black mb-6 tracking-[0.2em] uppercase">لفترة محدودة</div>
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold text-gray-900 mb-4">العروض الحصرية</h2>
+                    <p class="text-lg text-gray-500 max-w-xl mx-auto">استفيدي من عروضنا المميزة على أقوى منتجات العناية بالبشرة</p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Offer 1 -->
+                    <div class="relative bg-white rounded-[2rem] overflow-hidden shadow-xl border border-[#B8860B]/20 group hover:-translate-y-2 transition-all">
+                        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#B8860B] offer-shimmer"></div>
+                        <div class="p-8 text-center">
+                            <div class="w-16 h-16 mx-auto mb-5 bg-[#B8860B]/10 rounded-full flex items-center justify-center">
+                                <i data-lucide="flask-conical" class="w-8 h-8 text-[#B8860B]"></i>
+                            </div>
+                            <div class="inline-block px-4 py-1 bg-red-500 text-white rounded-full text-xs font-black mb-4">عرض خاص</div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">سيروم الخلايا الجذعية</h3>
+                            <p class="text-sm text-gray-500 mb-6">سيروم التجديد المتقدم مع استشارة مجانية للبشرة</p>
+                            <div class="mb-6 p-4 bg-gradient-to-r from-[#fdf6e3] to-[#f5ead0] rounded-xl">
+                                <p class="text-xs text-[#B8860B] font-bold mb-1">العرض يشمل</p>
+                                <p class="text-sm text-gray-600">سيروم + استشارة مجانية + متابعة لمدة شهر</p>
+                            </div>
+                            <a href="https://wa.me/972584996680?text=أهلاً، أريد الاستفادة من عرض سيروم الخلايا الجذعية" target="_blank" class="flex items-center justify-center gap-2 bg-[#B8860B] text-white px-6 py-3.5 rounded-full font-black text-sm hover:bg-[#966d09] transition-all shadow-lg hover:-translate-y-0.5 active:scale-95 w-full">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                احصلي على العرض
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Offer 2 -->
+                    <div class="relative bg-white rounded-[2rem] overflow-hidden shadow-xl border-2 border-[#B8860B] group hover:-translate-y-2 transition-all">
+                        <div class="absolute top-0 left-0 right-0 bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#B8860B] text-white text-center py-2 text-xs font-black tracking-[0.15em] uppercase offer-shimmer">الأكثر طلباً</div>
+                        <div class="p-8 pt-14 text-center">
+                            <div class="w-16 h-16 mx-auto mb-5 bg-[#B8860B]/10 rounded-full flex items-center justify-center">
+                                <i data-lucide="package" class="w-8 h-8 text-[#B8860B]"></i>
+                            </div>
+                            <div class="inline-block px-4 py-1 bg-red-500 text-white rounded-full text-xs font-black mb-4">توفير كبير</div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">المجموعة الكاملة + السيروم</h3>
+                            <p class="text-sm text-gray-500 mb-6">جميع المنتجات مع سيروم الخلايا الجذعية بسعر مميز</p>
+                            <div class="mb-6 p-4 bg-gradient-to-r from-[#fdf6e3] to-[#f5ead0] rounded-xl">
+                                <p class="text-xs text-[#B8860B] font-bold mb-1">العرض يشمل</p>
+                                <p class="text-sm text-gray-600">5 منتجات + السيروم + توصيل مجاني + هدية مفاجئة</p>
+                            </div>
+                            <a href="https://wa.me/972584996680?text=أهلاً، أريد الاستفادة من عرض المجموعة الكاملة مع السيروم" target="_blank" class="flex items-center justify-center gap-2 bg-gradient-to-r from-[#B8860B] to-[#D4AF37] text-white px-6 py-3.5 rounded-full font-black text-sm hover:from-[#966d09] hover:to-[#B8860B] transition-all shadow-lg hover:-translate-y-0.5 active:scale-95 w-full">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                احصلي على العرض
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Offer 3 -->
+                    <div class="relative bg-white rounded-[2rem] overflow-hidden shadow-xl border border-[#B8860B]/20 group hover:-translate-y-2 transition-all">
+                        <div class="absolute top-0 left-0 right-0 h-1.5 bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#B8860B] offer-shimmer"></div>
+                        <div class="p-8 text-center">
+                            <div class="w-16 h-16 mx-auto mb-5 bg-[#B8860B]/10 rounded-full flex items-center justify-center">
+                                <i data-lucide="gem" class="w-8 h-8 text-[#B8860B]"></i>
+                            </div>
+                            <div class="inline-block px-4 py-1 bg-red-500 text-white rounded-full text-xs font-black mb-4">عرض حصري</div>
+                            <h3 class="text-xl font-bold text-gray-900 mb-2">باقة التجديد الشامل</h3>
+                            <p class="text-sm text-gray-500 mb-6">سيروم الخلايا الجذعية + كريم الكولاجين للتجديد الكامل</p>
+                            <div class="mb-6 p-4 bg-gradient-to-r from-[#fdf6e3] to-[#f5ead0] rounded-xl">
+                                <p class="text-xs text-[#B8860B] font-bold mb-1">العرض يشمل</p>
+                                <p class="text-sm text-gray-600">السيروم + كريم الكولاجين + برنامج عناية مخصص</p>
+                            </div>
+                            <a href="https://wa.me/972584996680?text=أهلاً، أريد الاستفادة من عرض باقة التجديد الشامل" target="_blank" class="flex items-center justify-center gap-2 bg-[#B8860B] text-white px-6 py-3.5 rounded-full font-black text-sm hover:bg-[#966d09] transition-all shadow-lg hover:-translate-y-0.5 active:scale-95 w-full">
+                                <i data-lucide="message-circle" class="w-4 h-4"></i>
+                                احصلي على العرض
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-12 text-center">
+                    <div class="inline-flex items-center gap-3 bg-[#B8860B]/5 border border-[#B8860B]/20 px-6 py-3 rounded-full text-sm text-[#B8860B] font-bold">
+                        <i data-lucide="clock" class="w-4 h-4"></i>
+                        العروض متاحة لفترة محدودة — لا تفوّتي الفرصة
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -332,6 +631,72 @@
         <!-- سيتم ملء باقي المحتوى العبري بشكل مماثل للعربي عند الحاجة -->
     </div>
 
+    <!-- Serum Info Modal -->
+    <div id="serum-modal" class="modal-overlay" onclick="if(event.target===this)closeSerumModal()">
+        <div class="modal-content">
+            <div class="bg-gradient-to-r from-[#B8860B] via-[#D4AF37] to-[#B8860B] p-6 text-white relative">
+                <button onclick="closeSerumModal()" class="absolute top-4 left-4 w-10 h-10 bg-white/20 backdrop-blur rounded-full flex items-center justify-center hover:bg-white/30 transition-colors">
+                    <i data-lucide="x" class="w-5 h-5"></i>
+                </button>
+                <div class="text-center">
+                    <i data-lucide="dna" class="w-10 h-10 mx-auto mb-3"></i>
+                    <h3 class="text-2xl font-serif font-bold">سيروم الخلايا الجذعية</h3>
+                    <p class="text-white/80 text-sm mt-1">Stem Cell Renewal Serum</p>
+                </div>
+            </div>
+            <div class="p-6 md:p-8 space-y-6">
+                <div>
+                    <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                        <i data-lucide="beaker" class="w-5 h-5 text-[#B8860B]"></i>
+                        ما هو سيروم الخلايا الجذعية؟
+                    </h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">سيروم متقدم يعتمد على تقنية الخلايا الجذعية النباتية المستخلصة من نباتات نادرة. يعمل على تجديد خلايا البشرة من الأعماق، ويحفز إنتاج الكولاجين والإيلاستين الطبيعي، مما يمنح بشرتك مظهراً أكثر شباباً ونضارة خلال أسابيع قليلة من الاستخدام المنتظم.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                        <i data-lucide="award" class="w-5 h-5 text-[#B8860B]"></i>
+                        لماذا يتميز سيروم لوش؟
+                    </h4>
+                    <div class="grid grid-cols-2 gap-3">
+                        <div class="bg-[#B8860B]/5 p-3 rounded-xl text-center border border-[#B8860B]/10">
+                            <p class="text-2xl font-black text-[#B8860B]">97%</p>
+                            <p class="text-[10px] text-gray-500 font-bold">نسبة رضا العملاء</p>
+                        </div>
+                        <div class="bg-[#B8860B]/5 p-3 rounded-xl text-center border border-[#B8860B]/10">
+                            <p class="text-2xl font-black text-[#B8860B]">14 يوم</p>
+                            <p class="text-[10px] text-gray-500 font-bold">لنتائج مرئية</p>
+                        </div>
+                        <div class="bg-[#B8860B]/5 p-3 rounded-xl text-center border border-[#B8860B]/10">
+                            <p class="text-2xl font-black text-[#B8860B]">100%</p>
+                            <p class="text-[10px] text-gray-500 font-bold">مكونات طبيعية</p>
+                        </div>
+                        <div class="bg-[#B8860B]/5 p-3 rounded-xl text-center border border-[#B8860B]/10">
+                            <p class="text-2xl font-black text-[#B8860B]">72 ساعة</p>
+                            <p class="text-[10px] text-gray-500 font-bold">ترطيب مستمر</p>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-bold text-gray-800 mb-3 flex items-center gap-2">
+                        <i data-lucide="users" class="w-5 h-5 text-[#B8860B]"></i>
+                        مناسب لجميع أنواع البشرة
+                    </h4>
+                    <p class="text-sm text-gray-600 leading-relaxed">تركيبة خفيفة وسريعة الامتصاص مناسبة للبشرة الجافة والدهنية والمختلطة والحساسة. خالٍ من البارابين والكحول والعطور الصناعية.</p>
+                </div>
+                <div class="flex flex-col gap-3 pt-2">
+                    <a href="https://wa.me/972584996680?text=أهلاً، أرغب بطلب سيروم الخلايا الجذعية" target="_blank" class="flex items-center justify-center gap-2 bg-[#B8860B] text-white px-6 py-4 rounded-full font-black text-base hover:bg-[#966d09] transition-all shadow-lg active:scale-95">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        اطلبي السيروم عبر واتساب
+                    </a>
+                    <a href="#ar-offers" onclick="closeSerumModal()" class="flex items-center justify-center gap-2 text-[#B8860B] font-bold border border-[#B8860B] px-6 py-3 rounded-full hover:bg-[#B8860B]/5 transition-all text-sm">
+                        <i data-lucide="tag" class="w-4 h-4"></i>
+                        شاهدي العروض الحصرية
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Floating WhatsApp -->
     <div class="fixed bottom-8 left-8 z-50">
         <a href="https://wa.me/972584996680" target="_blank" class="bg-[#25D366] text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all flex items-center justify-center">
@@ -340,7 +705,6 @@
     </div>
 
     <script>
-        // تفعيل الأيقونات
         lucide.createIcons();
 
         function showSite(lang) {
@@ -358,7 +722,23 @@
                 document.documentElement.lang = 'he';
             }
             window.scrollTo(0,0);
+            lucide.createIcons();
         }
+
+        function openSerumModal() {
+            document.getElementById('serum-modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
+            lucide.createIcons();
+        }
+
+        function closeSerumModal() {
+            document.getElementById('serum-modal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') closeSerumModal();
+        });
     </script>
 </body>
 </html>
